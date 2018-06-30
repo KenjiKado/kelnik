@@ -1,0 +1,273 @@
+@import compass/reset
+@import compass/css3
+@import compass/layout
+@import compass/typography
+@import compass/css3/font-face
+
+//FONT SIZES
+$base-font-size: 16px !global
+$base-line-height: 24px !global
++establish-baseline
+
++font-face("Tahoma", font-files("Tahoma/Tahoma.ttf", "Tahoma/Tahoma.woff"), "Tahoma/Tahoma.eot", normal)
++font-face("PrototypsterMedium", font-files("PrototypsterMedium/prototypster-medium-webfont.ttf", "PrototypsterMedium/prototypster-medium-webfont.woff", "PrototypsterMedium/prototypster-medium-webfont.svg"), "PrototypsterMedium/prototypster-medium-webfont.eot", normal)
+
+
+$orange: #ff5e42
+
+h1
+  font-family: "PrototypsterMedium"
+  +adjust-font-size-to(48px)
+  line-height: 1
+  text-transform: uppercase
+  letter-spacing: 0.48px
+h3
+  font-family: "PrototypsterMedium", sans-serif
+  +adjust-font-size-to(24px)
+  line-height: 1
+  text-transform: uppercase
+  letter-spacing: 0.24px
+b, strong
+  font-weight: 700
+a
+  text-decoration: none
+  color: $orange
+  transition: all ease-out 0.3s
+body
+  font-family: "Tahoma", sans-serif
+  color: #2a2a2a
+.wrapper
+  background-image: url(../img/noisy-texture.png)
+  background-color: #fafafa
+header
+  padding: 50px 0 40px
+  .title
+    &-container
+      max-width: 1024px
+      text-align: center
+      margin: 0 auto
+      &__headline
+        height: 100px
+        background-image: url(../img/title-bg.png)
+        background-repeat: no-repeat
+        background-position: center
+        h1
+          line-height: 110px
+      &__sorting
+        a
+          display: inline-block
+          border-bottom: 1px dashed $orange
+          cursor: pointer
+          &:hover
+            border-bottom-color: transparent
+          &:after
+            display: inline-block
+            color: $orange
+          &.down
+            &:after
+              content: '\25BC'
+          &.top
+            &:after
+              content: '\25B2'
+.items
+  max-width: 1024px
+  padding: 0 15px
+  margin: 0 auto
+  box-sizing: border-box
+  &-container
+    margin-right: -10px
+    margin-left: -10px
+    .item
+      width: 100% / 3 * 1
+      margin: 20px 0
+      padding-left: 10px
+      padding-right: 10px
+      float: left
+      box-sizing: border-box
+      &-block
+        position: relative
+        width: auto
+        height: 100%
+        padding: 7px
+        border-radius: 10px
+        background-color: #fff
+        border-top: 1px solid #cecdcd
+        box-sizing: border-box
+        behavior: url(./css/PIE.htc)
+        &.active
+          padding: 3px
+          border: 4px solid $orange
+        &.favorite
+          &:before
+            content: ''
+            height: 55px
+            width: 35px
+            display: block
+            position: absolute
+            top: 0
+            right: 20px
+            background-image: url(../img/flag.png)
+        &__image
+          width: 100%
+          text-align: center
+          img
+            max-width: 100%
+        &__content
+          padding: 12px 7px
+        &__text
+          padding: 10px 0
+          p
+            +adjust-font-size-to(13px)
+            font-weight: 400
+            line-height: 1.5
+            &:first-child
+              margin-bottom: 20px
+        &__progress
+          padding: 20px 0
+          box-sizing: border-box
+          >*
+            display: inline-block
+            font-family: "PrototypsterMedium", sans-serif
+            +adjust-font-size-to(24px)
+            line-height: 1
+            text-transform: uppercase
+            letter-spacing: 0.24px
+          span
+            color: #b8b8b8
+          a
+            border-bottom: 1px solid $orange
+            color: $orange
+    &:after
+      content: ''
+      display: block
+      opacity: 0
+      clear: both
+.up-link
+  width: 100%
+  padding: 65px 0 45px
+  text-align: center
+  a
+    display: inline-block
+    font-family: "PrototypsterMedium", sans-serif
+    +adjust-font-size-to(36px)
+    line-height: 1
+    text-transform: uppercase
+    letter-spacing: 0.24px
+    border-bottom: 1px solid $orange
+    cursor: pointer
+footer
+  position: relative
+  padding: 45px 0
+  background-image: url(../img/noisy-texture.png)
+  background-color: #383838
+  &:before
+    content: ''
+    width: 100%
+    height: 4px
+    position: absolute
+    top: -4px
+    background-image: url(../img/wave.png)
+    background-repeat: repeat-x
+  .footer-container
+    max-width: 1024px
+    margin: 0 auto
+  .form
+    &-right, &-left
+      display: inline-block
+      padding: 0 10px
+      float: left
+    &-label
+      display: inline-block
+      margin: 12px 0
+      font-family: "PrototypsterMedium", sans-serif
+      +adjust-font-size-to(14px)
+      line-height: 1
+      text-transform: uppercase
+      letter-spacing: 0.14px
+      color: #fff
+    &-input
+      input
+        position: relative
+        display: inline-block
+        min-width: 210px
+        height: 38px
+        padding: 13px
+        border: 0
+        border-radius: 5px
+        -pie-background: #fff
+        background: #fff
+        box-sizing: border-box
+        font-family: "PrototypsterMedium", sans-serif
+        +adjust-font-size-to(18px)
+        line-height: 1
+        text-transform: uppercase
+        color: #2a2a2a
+        outline: none
+        behavior: url(./css/PIE.htc)
+        &.error
+          box-shadow: 0 0 8px 2px rgba($orange, 0.5)
+      label.error
+        display: block
+        margin: 5px 0
+        color: $orange
+    &-checkbox
+      margin: 20px 0
+      label
+        display: inline-block
+        vertical-align: middle
+        span
+          display: block
+          position: relative
+          height: 28px
+          width: 28px
+          background-image: url(../img/checkbox-bg.png)
+          background-repeat: no-repeat
+          background-position: center
+          &.checked
+            &:after
+              content: ""
+              display: block
+              width: 100%
+              height: 100%
+              background-image: url(../img/check.png)
+              background-repeat: no-repeat
+              background-position: center
+        input
+          display: none
+      p
+        display: inline-block
+        margin: 0 10px
+        font-family: "PrototypsterMedium", sans-serif
+        +adjust-font-size-to(18px)
+        line-height: 1
+        text-transform: uppercase
+        vertical-align: middle
+        color: #fff
+    &-button
+      [type=submit]
+        padding: 0
+        font-family: "PrototypsterMedium", sans-serif
+        +adjust-font-size-to(28px)
+        line-height: 1
+        text-transform: uppercase
+        border: none
+        border-bottom: 1px solid $orange
+        background: none
+        color: $orange
+        outline: none
+        cursor: pointer
+    &:after
+      content: ''
+      display: block
+      opacity: 0
+      clear: both
+@media screen and (max-width: 768px)
+  .items
+    &-container
+      .item
+        width: 50%
+@media screen and (max-width: 480px)
+  .items
+    &-container
+      .item
+        width: 100%
